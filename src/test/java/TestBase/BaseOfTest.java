@@ -1,9 +1,9 @@
 package TestBase;
 
+import Utils.UrlReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -11,14 +11,9 @@ public class BaseOfTest {
     public static WebDriver driver;
     @BeforeMethod
     public void setUp() {
-        // Set the path to the ChromeDriver executable
-       // if(driver.equals("Chrome")){
+        String Url=UrlReader.getUrl("HerokuUrl");
             driver = new ChromeDriver(getOptimizedChromeOptions());
-        //} else if (driver.equals("Firefox")) {
-            // Initialize Firefox driver (if needed)
-         //   driver=new FirefoxDriver();
-        //}
-        driver.navigate().to("https://duckduckgo.com/");
+            driver.navigate().to(Url);
     }
 
     @AfterMethod

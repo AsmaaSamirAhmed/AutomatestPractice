@@ -1,4 +1,4 @@
-package firstProject;
+package ProjectTests;
 
 import TestBase.BaseOfTest;
 import org.testng.Assert;
